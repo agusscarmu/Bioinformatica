@@ -96,6 +96,11 @@ def RandomMotifs(Dna, k, t):
         Motif.append(Dna[i][randomIndex:randomIndex+k])
     return Motif
 
+Dna="ATGAGGTC","GCCCTAGA","AAATAGAT","TTGTGCTA"
+
+t=len(Dna)
+k=3
+N=2
 
 def GibbsSampler(Dna, k, t, N):
     BestMotifs = RandomizedMotifSearch(Dna, k, t)
@@ -104,3 +109,6 @@ def GibbsSampler(Dna, k, t, N):
         if Score(Motif)<Score(BestMotifs):
             BestMotifs=Motif
     return BestMotifs
+
+Motif=GibbsSampler(Dna, k, t, N)
+print(Motif)
