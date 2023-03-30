@@ -1,16 +1,10 @@
 import timeit
 # Nos da un diccionario con la cantidad de frecuencia de un patron en un segmento de ADN
-def FrequencyTable(Text, k):
-    frequMap={}
-    n=len(Text)
-    for i in range(n-k):
-        Pattern= Text[i:i+k]
-        if Text[i:i+k] not in frequMap:     
-            frequMap[Pattern]=1
-        elif Pattern == Text[i:i+k]:
-            frequMap[Pattern] += 1
-
-    return frequMap
+def FrequencyTable(patterns):
+    salida={}
+    for i in range(len(patterns)):
+        salida[patterns[i]]+=1
+    return salida
 
 # Nos devuelve los patrones con mayor repeticion
 def BetterFrequentWord(Text,k):
@@ -29,22 +23,25 @@ def MaxMap(freqMap):
             mayor=freqMap[Pattern]
     return mayor
 
+def Patterns(text,k):
+    p=[]
+    for i in range(len(text)):
+        pattern=text[i:i+k]
+        p.append(pattern)
+    return p
+
+
 def FindClumps(Text,k,L,t):
-    count=0
-    p={}
-    counted=[]
-    n=len(Text)
-    for i in range(n-L):
-        p=FrequencyTable(text[i:i+L],k)
-        for pattern in p:
-            if pattern not in counted:
-                if p[pattern]>=t:
-                    counted.append(pattern)
-    count=len(counted)
+    salida={}
+    patterns=Patterns(Text,k)
+    for i in range(len(Text)-L):
+        freqTab=FrequencyTable(patterns[i:i+L])
+        for Pattern in freqTab:
+            if freqTab[Pattern]>=t:
+                salida[Pattern]+=1
+    return salida
 
-    return count
-
-text=open('./E_Coli.txt').read()
+text=open('./HiddingMsgDNA/E_Coli.txt').read()
 # print("hola")
 # print(text)
 k=9
