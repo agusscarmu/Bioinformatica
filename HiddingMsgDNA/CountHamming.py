@@ -19,8 +19,8 @@ def count(text, pattern, h):
     count=len(indices)
     return count
 
-text="AACAAGCTGATAAACATTTAAAGAG"
-h=2
-pattern="AAAAA"
+text="TACGCATTACAAAGCACA"
+h=1
+pattern="AA"
 
 print(count(text,pattern,h))

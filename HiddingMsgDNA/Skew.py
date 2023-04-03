@@ -21,5 +21,6 @@ def minSkew(text):
 
 
 text=open('./HiddingMsgDNA/dataset.txt').read()
+t="GATACACTTCCCGAGTAGGTACTG"
 
-print(minSkew(text))
+print(minSkew(t))
