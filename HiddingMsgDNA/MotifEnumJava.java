@@ -67,8 +67,5 @@ public class MotifEnumJava {
         int d = 1;
         Set<String> motifs = findMotifs(dna, k, d);
         System.out.println(motifs);
-        String h="hola";
-        String f=h.substring(0,0+2);
-        System.out.println(f);
     }
 }
